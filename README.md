@@ -7,11 +7,14 @@ Competitor to Mikuia without all the extra features like leveling etc. Intended 
 # Non-goals of this project
 - Mikuia-esque leveling. Too complex for my small brain.
 - Custom commands. See ^.
-- This could go on and on with basically everything Mikuia has because it's either very out of the scope of this project or too complex, lol
+- This could go on and on with basically everything Mikuia has besides requests because it's either very out of the scope of this project or too complex, lol
 
 # (Possibly) planned features
 - "Now playing" command, this will be complex though, and will require a client application.
   - If this is done, I also intend it to be self contained.
+- Web dashboard
+  - Twitch login method
+  - Will be relatively simple (since we're not Mikuia)
 
 # Self-hosting guide
 TBD. Maybe once I actually get it working myself on an official instance.
