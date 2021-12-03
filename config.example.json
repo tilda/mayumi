@@ -1,0 +1,16 @@
+{
+    "twitch": {
+        "access_token": "",
+        "prefix": "",
+        "channels": [
+
+        ]
+    },
+    "osu": {
+        "client_id": "",
+        "client_secret": ""
+    },
+    "misc": {
+        "startup_banner": true
+    }
+}
