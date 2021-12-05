@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 twitchio = "*"
 logbook = "*"
+orm = {extras = ["sqlite"], version = "*"}
+quart = "*"
 
 [dev-packages]
 
