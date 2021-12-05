@@ -2,7 +2,7 @@ from twitchio.ext import commands
 import utils.config
 from logbook.compat import redirect_logging
 from logbook import StreamHandler
-from sys import stdout
+from sys import stdout, exit
 from logging import getLogger
 from re import compile as compile_regex
 
@@ -15,9 +15,8 @@ class Mayumi(commands.Bot):
         StreamHandler(stdout).push_application()
         redirect_logging()
         self.log = getLogger('mayumi')
-        getLogger('twitchio.websocket').setLevel(20) # just getting rid
-        getLogger('twitchio.client').setLevel(20) # of this trash :D
-        getLogger('asyncio').setLevel(20) # don't mind me!
+        for logger in ['twitchio.websocket', 'twitchio.client', 'asyncio']:
+            logger.setLevel(20) # get rid of unnecessary debug logging
 
         # startup banner
         if config['misc']['startup_banner']:
