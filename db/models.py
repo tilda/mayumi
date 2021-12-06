@@ -8,8 +8,8 @@ class User(orm.Model):
     tablename = "users"
     registry = registry
     fields = {
-        "twitchID": orm.Integer(primary_key=True),
-        "osuID": orm.Integer(),
+        "osuID": orm.Integer(primary_key=True, unique=True),
+        "twitchID": orm.Integer(unique=True),
         "reqsEnabled": orm.Boolean(default=False),
         "setupComplete": orm.Boolean(default=False)
     }
