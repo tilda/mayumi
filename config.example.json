@@ -1,6 +1,7 @@
 {
     "twitch": {
-        "access_token": "",
+        "client_id": "",
+        "client_secret": "",
         "prefix": "",
         "channels": [
 

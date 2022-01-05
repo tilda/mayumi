@@ -1,5 +1,6 @@
 from twitchio.ext import commands
 import utils.config
+from utils.oauth import retrieve_token
 from logbook.compat import redirect_logging
 from logbook import StreamHandler
 from sys import stdout, exit
@@ -26,7 +27,7 @@ class Mayumi(commands.Bot):
         redirect_logging()
         self.log = getLogger('mayumi')
         self.config = config
-        for logger in ['twitchio.websocket', 'twitchio.client', 'asyncio']:
+        for logger in ['twitchio.websocket', 'twitchio.client', 'asyncio', 'urllib3.connectionpool']:
             yeah = getLogger(logger)
             yeah.setLevel(20) # get rid of unnecessary debug logging
 
@@ -43,9 +44,11 @@ class Mayumi(commands.Bot):
         self.api_server = None
         self.http_loop = get_event_loop()
         self.http_loop.create_task(self.boot_api_server())
+
+        self.irc_token = retrieve_token(config['twitch']['client_id'], config['twitch']['client_secret'])
         
         super().__init__(
-            token=config['twitch']['access_token'],
+            token=self.irc_token,
             prefix=config['twitch']['prefix'],
             initial_channels=config['twitch']['channels'] # TBD: load this from DB
         )
@@ -69,6 +72,7 @@ class Mayumi(commands.Bot):
             self.api_server = await _boot_hypercorn(
                 self.api, hypercorn_config.from_mapping(config['api']), self.http_loop
             )
+            self.log.info(f'successfully started API server on port {self.config["api"]["port"]}')
         except:
             self.log.exception('failed to start API server')
 
