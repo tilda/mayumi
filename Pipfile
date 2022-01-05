@@ -6,8 +6,9 @@ name = "pypi"
 [packages]
 twitchio = "*"
 logbook = "*"
-orm = {extras = ["sqlite"], version = "*"}
-quart = "*"
+orm = {extras = ["sqlite"], version = "~=0.2"}
+quart = "==0.8.1"
+hypercorn = "==0.6.0"
 
 [dev-packages]
 
