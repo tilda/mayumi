@@ -8,7 +8,9 @@
     },
     "osu": {
         "client_id": "",
-        "client_secret": ""
+        "client_secret": "",
+        "irc_user": "",
+        "irc_password": ""
     },
     "misc": {
         "startup_banner": true
