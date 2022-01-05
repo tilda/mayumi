@@ -14,6 +14,6 @@
         "startup_banner": true
     },
     "api": {
-        "port": 9709
+        "port": 7727
     }
 }
