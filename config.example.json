@@ -12,5 +12,8 @@
     },
     "misc": {
         "startup_banner": true
+    },
+    "api": {
+        "port": 9709
     }
 }
